@@ -26,6 +26,7 @@
         </ul>
     </div>
     <hr>
+    <pre id="pre2"></pre>
     <pre></pre>
     <script>
         async function getUserInfo() {
@@ -35,7 +36,15 @@
             pre.textContent = JSON.stringify(user, null, 2);
         }
 
+        async function getMessage() {
+            const response = await fetch('/api/GetMessage');
+            const user = await response.json();
+            const pre = document.querySelector('#pre2');
+            pre.textContent = JSON.stringify(user, null, 2);
+        }
+
         getUserInfo();
+        getMessage();
     </script>
 </body>
 
